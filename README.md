@@ -1,6 +1,6 @@
 # samuel-berthe.fr
 
-https://samuel-berthe.fr
+http://samuel-berthe.fr
 
 ```
 # dev
