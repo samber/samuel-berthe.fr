@@ -65,34 +65,15 @@
     }
     </script>
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="assets/css/superslides.css" rel="stylesheet">
     <link href="assets/css/ionicons.min.css" rel="stylesheet">
-    <link href="assets/css/cubeportfolio.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-
-    <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
 
     <!-- ********** MAIN ********** -->
     <section id="slides">
-       <ul class="slides-container">
-          <li>
-             <img src="assets/img/slide-1.jpg" alt="">
-          </li>
-       </ul>
+      <img class="slide-bg" src="assets/img/slide-1.jpg" alt="">
      <div id="bannerimg">
       <div class="avatar">
         <img src="assets/img/avatar-2024.jpg"/>
@@ -113,50 +94,22 @@
       <span class="spaced"><a href="https://linkedin.com/in/samuelberthe" target="_blank"><i class="icon ion-social-linkedin-outline"></i></a></span>
       <span class="spaced"><a href="https://medium.com/@samuelberthe" target="_blank"><i class="icon ion-social-rss"></i></a></span>
       <span class="spaced"><a href="https://samuelberthe.substack.com/" target="_blank" aria-label="Substack"><svg class="icon" style="width: 0.75em; height: 0.75em;" viewBox="0 0 24 24" fill="currentColor" role="img"><title>Substack</title><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg></a></span>
-      <span class="spaced"><a href="mailto:contact@samuel-berthe.fr" data-toggle="tooltip" data-placement="bottom" title="<h4>contact@samuel-berthe.fr</h4>"><i class="icon ion-ios-email"></i></a></span>
+      <span class="spaced"><a href="mailto:contact@samuel-berthe.fr" title="contact@samuel-berthe.fr"><i class="icon ion-ios-email"></i></a></span>
     </div>
        <!-- end:Banner text -->
     </section>
     <!-- END SLIDES SECTION -->
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/classie.js"></script>
-    <script src="assets/js/jquery.superslides.js"></script>
-    <script src="assets/js/jquery.cubeportfolio.js"></script>
-    <script src="assets/js/theme.js"></script>
-
-    <script>
-		$('#slides').superslides({
-		    slide_easing: 'easeInOutCubic',
-		    slide_speed: 800,
-		    pagination: false,
-		    hashchange: false,
-		    scrollable: false,
-		    animation: 'fade'
-		});
-    </script>
-
     <script>
       function EasyPeasyParallax() {
-          scrollPos = $(this).scrollTop();
-          $('#slider').css({
-              'background-position': '50% ' + (-scrollPos / 4) + "px"
-          });
-          $('#bannertext, #bannerimg').css({
-              'margin-top': (scrollPos / 4) + "px",
-              'opacity': 1 - (scrollPos / 250)
-          });
+        var scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+        var elements = document.querySelectorAll('#bannertext, #bannerimg');
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].style.marginTop = (scrollPos / 4) + 'px';
+          elements[i].style.opacity = 1 - (scrollPos / 250);
+        }
       }
-      $(document).ready(function () {
-        //EasyPeasyParallax();
-          $(window).scroll(function () {
-              EasyPeasyParallax();
-          });
-        $('[data-toggle="tooltip"]').tooltip({
-          'html' : true
-        });
-      });
+      window.addEventListener('scroll', EasyPeasyParallax);
     </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
